@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>EDIT</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+<a href="/ShowStuden_Servlet"><h3><<< Back</h3></a>
 <div class="container">
   <h2>Add new Student</h2>
   <form action="/EditControllor" method="post">
@@ -48,14 +48,15 @@
       <input type="text" class="form-control" name="phone" value="${student.getPhoneNumber()}">
     </div>
     <div class="form-group">
-      <label>Class:</label>
+      <p>Class: ${classname} </p>
+      <label>Class Edit: </label>
       <select name="idClassRoom">
         <c:forEach items="${listClass}" var="c">
           <option value="${c.getIdClass()}">${c.getNameClass()}</option>
         </c:forEach>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Edit</button>
   </form>
 </div>
 

@@ -4,6 +4,7 @@ import DAO.ClassDao;
 import DAO.StudentDao;
 import Model.Student;
 import Model.StudentClass;
+import Service.ClassService;
 import Service.StudentService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -20,6 +21,9 @@ public class EditServlet extends HttpServlet {
         int idStudent = Integer.parseInt(request.getParameter("id"));
         Student student = StudentService.returnStudent(idStudent);
         request.setAttribute("student", student);
+
+        String nameClass = ClassService.nameClass(student.getClassroom());
+        request.setAttribute("classname", nameClass);
 
         List<StudentClass> studentClasses = ClassDao.getAllClass();
         request.setAttribute("listClass", studentClasses);

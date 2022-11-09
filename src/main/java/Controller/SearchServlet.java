@@ -15,7 +15,7 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
 
-        List<Student> students = StudentDao.getAllStudent();
+        List<Student> students = StudentDao.getStudent(search);
         request.setAttribute("Student", students);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/ShowStudent.jsp");

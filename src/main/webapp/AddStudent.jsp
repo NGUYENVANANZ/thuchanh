@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>ADD</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+<a href="/ShowStuden_Servlet"><h3><<< Back</h3></a>
 <div class="container">
   <h2>Add new Student</h2>
   <form action="/AddStudentServlet" method="post">
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
       <label>Date of Birth:</label>
-      <input type="text" class="form-control" name="date">
+      <input type="date" class="form-control" name="date">
     </div>
     <div class="form-group">
       <label>Address:</label>
@@ -51,7 +51,7 @@
       </c:forEach>
     </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">ADD</button>
   </form>
 </div>
 

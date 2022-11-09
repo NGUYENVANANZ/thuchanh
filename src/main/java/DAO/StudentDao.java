@@ -35,6 +35,33 @@ public class StudentDao {
         return students;
     }
 
+    public static List<Student> getStudent(String nameStudent) {
+        String search = "%"+ nameStudent + "%";
+        List<Student> students = new ArrayList<>();
+        String sql = "Select * from student where Name LIKE ? ";
+
+        try {
+            // tạo cái xe để đưa câu lệnh sql qua CSDL
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, search);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int idStudent = resultSet.getInt("idStudent");
+                String name = resultSet.getString("Name");
+                LocalDate dateOfBirth = resultSet.getDate("DateofBirth").toLocalDate();
+                String address = resultSet.getString("Address");
+                String phoneNumber = resultSet.getString("PhoneNumber");
+                String email = resultSet.getString("Email");
+                int classroom = resultSet.getInt("idClassroom");
+                students.add(new Student(idStudent, name, dateOfBirth, address, phoneNumber, email, classroom));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return students;
+    }
+
     public static void save(Student student) {
         try {
             String sql = "insert into student(Name ,DateofBirth ,Address,PhoneNumber, Email, idClassroom) value ( ?,?,?,?,?,?)";
@@ -80,5 +107,7 @@ public class StudentDao {
             throwables.printStackTrace();
         }
     }
+
+
 
 }

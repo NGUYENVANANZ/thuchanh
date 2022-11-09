@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>SHOW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -16,13 +16,14 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <form>
-            <a href="/AddStudentServlet" type="button" class="btn btn-primary">ADD</a>
-        </form>
-        <form class="form-inline" action="/SearchServlet" style="float: right">
+        <a href="/AddStudentServlet" type="button" class="btn btn-primary">ADD</a>
+        <a href="/ShowStuden_Servlet" type="button" class="btn btn-primary" style="margin-left: 20px">ShowAll</a>
+        <div style="margin-left: 600px">
+        <form class="form-inline" action="/SearchServlet">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
+        </div>
     </nav>
     <br>
     <table class="table table-striped">
@@ -46,7 +47,8 @@
                 <td>${St.getAddress()}</td>
                 <td>
                     <a href="/EditControllor?id=${St.getIdStudent()}" type="button" class="btn btn-warning">Edit</a>
-                    <a href="/DeleteServlet?id=${St.getIdStudent()}"  type="button" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-danger">Delete</a>
+                    <a href="/DeleteServlet?id=${St.getIdStudent()}" type="button"
+                       onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         </c:forEach>
